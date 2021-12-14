@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "customers.json",
+				"fileName": "products.json",
+				"folderPath": "niala",
 				"fileSystem": "demo"
 			}
 		},

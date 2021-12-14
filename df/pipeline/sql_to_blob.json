@@ -5,7 +5,14 @@
 			{
 				"name": "sql_to_blob",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "change_mapping",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -16,9 +23,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"sink": {
 						"type": "JsonSink",
@@ -34,7 +47,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "azure_sql_table",
+						"referenceName": "csv",
 						"type": "DatasetReference"
 					}
 				],
@@ -80,6 +93,118 @@
 						"mappings": [
 							{
 								"source": {
+									"name": "ProductModelID",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ProductModelID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CatalogDescription",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CatalogDescription",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "rowguid",
+									"type": "Guid"
+								},
+								"sink": {
+									"name": "rowguid",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ModifiedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "ModifiedDate",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "product_model_table",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "csv",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "change_mapping",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "sql_to_blob_csv",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
 									"name": "Name",
 									"type": "String"
 								},
@@ -90,7 +215,7 @@
 							{
 								"source": {
 									"name": "rowguid",
-									"type": "Guid"
+									"type": "String"
 								},
 								"sink": {
 									"name": "row_guid"
@@ -101,7 +226,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "product_model_table",
+						"referenceName": "csv",
 						"type": "DatasetReference"
 					}
 				],
