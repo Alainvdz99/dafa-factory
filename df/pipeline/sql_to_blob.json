@@ -80,32 +80,11 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "ProductModelID",
-									"type": "Int32"
-								},
-								"sink": {
-									"name": "ProductModelID",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"name": "Name",
 									"type": "String"
 								},
 								"sink": {
-									"name": "Name",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "CatalogDescription",
-									"type": "String"
-								},
-								"sink": {
-									"name": "CatalogDescription",
-									"type": "String"
+									"name": "name"
 								}
 							},
 							{
@@ -114,18 +93,7 @@
 									"type": "Guid"
 								},
 								"sink": {
-									"name": "rowguid",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "ModifiedDate",
-									"type": "DateTime"
-								},
-								"sink": {
-									"name": "ModifiedDate",
-									"type": "String"
+									"name": "row_guid"
 								}
 							}
 						]
