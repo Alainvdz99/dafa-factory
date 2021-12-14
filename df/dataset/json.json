@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "products.json",
+				"fileName": "concat(@pipeline().RunId)-products.json",
 				"folderPath": "niala",
 				"fileSystem": "demo"
 			}
