@@ -342,7 +342,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@activity('check_if_exist').output.exist",
+						"value": "@activity('check_if_exist').output.exists",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [
