@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
-			"url": "https://samisjaedu.dfs.core.windows.net",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDdFQ0JGNTA4LTRDQjEtNEU5Ri05Q0VGLUMyNTA1NDUwNjA4MF80MmJlY2FmYS1jZDdiLTRjNmUtODE0Mi1iMDBlZDc3Y2I2NjIiDQp9"
+			"url": "https://saisaac.dfs.core.windows.net",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDVFQThBQzlGLTdGODAtNDBGRS1COTQzLURDRjE1RTQ0N0FDQ18yYzFiYTFkMi0yMDkyLTQ4ZmYtYjJjNy0xYTg5YzRlNTM1YjUiDQp9"
 		}
 	}
 }
