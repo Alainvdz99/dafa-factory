@@ -1,0 +1,30 @@
+{
+	"name": "json_rijks",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "data_lake_gen_2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "rijk.json",
+				"folderPath": "niala",
+				"fileSystem": "demo"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"row_guid": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
