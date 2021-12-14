@@ -1,0 +1,9 @@
+{
+	"name": "df-isaac",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d2e1824b-0b88-42d2-a23c-246d459ba195",
+		"tenantId": "3d4d17ea-1ae4-4705-947e-51369c5a5f79"
+	}
+}
